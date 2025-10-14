@@ -1,10 +1,10 @@
 // src/utils/math.js
 
-//This file is for testing purposes only.
+// (!) This file is for testing purposes only!
 // It allows us to verify that the JSDoc installation and configuration are working correctly,
 //  as well as the generation of the corresponding documentation.
 
-// This file, and likely the folder containing it (utils), should be deleted in the future.
+// TODO: This file, and likely the folder containing it (utils), should be deleted in the future.
 
 /**
  * <b> Calculates the total number of items needed for a collection. </b>

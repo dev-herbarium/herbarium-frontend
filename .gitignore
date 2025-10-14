@@ -468,3 +468,6 @@ $RECYCLE.BIN/
 
 ### JSDoc ###
 docs/
+
+### Coverage Reports ###
+coverage/
