@@ -1,0 +1,37 @@
+{
+  "source": {
+    "include": ["src"],
+    "includePattern": ".+\\.(js|jsx|html)$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "opts": {
+    "destination": "./docs",
+    "template": "./node_modules/docdash",
+    "recurse": true,
+    "readme": "README.md"
+  },
+  "plugins": [],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true,
+    "default": {
+      "outputSourceFiles": true
+    },
+    "docdash": {
+      "navLevel": 2,
+      "sectionOrder": [
+        "Classes",
+        "Modules",
+        "Externals",
+        "Events",
+        "Mixins",
+        "Tutorials",
+        "Global"
+      ],
+      "sort": true,
+      "meta": {
+        "title": "Herbarium Frontend API Documentation"
+      }
+    }
+  }
+}
