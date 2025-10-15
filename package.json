@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "docs": "jsdoc -c jsdoc.json",
+    "jsdoc": "jsdoc -c jsdoc.json",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage"

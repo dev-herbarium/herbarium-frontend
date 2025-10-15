@@ -467,7 +467,7 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/windows,linux,macos,node,git,react,visualstudiocode,intellij,netbeans,eclipse
 
 ### JSDoc ###
-docs/
+jsdoc/
 
 ### Coverage Reports ###
 coverage/

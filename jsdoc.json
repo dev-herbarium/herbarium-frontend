@@ -5,7 +5,7 @@
     "excludePattern": "(^|\\/|\\\\)_"
   },
   "opts": {
-    "destination": "./docs",
+    "destination": "./jsdoc",
     "template": "./node_modules/docdash",
     "recurse": true,
     "readme": "README.md"
