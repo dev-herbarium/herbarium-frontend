@@ -11,4 +11,5 @@ import { calculateTotal } from "../utils/math";
 
 test('calculateTotal function adds two numbers correctly', () => {
     expect(calculateTotal(5, 10)).toBe(15);
+    console.log(calculateTotal(5,10)); // This log will be also print in "Vistest UI", run "npm test:ui"
 });
