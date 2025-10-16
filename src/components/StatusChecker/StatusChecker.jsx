@@ -12,7 +12,7 @@ import { getAppStatus } from "../../services/statusService";
  * @example
  * // Usage in 'App.jsx':
  * import StatusChecker from './components/StatusChecker/StatusChecker';
- * 
+ *
  * function App () {
  *      return (
  *               <main>
@@ -28,15 +28,17 @@ function StatusChecker() {
 
   useEffect(() => {
     // 1. Call the Service function inside useEffect
-    getAppStatus()
+    getAppStatus() // ASYNCHRONOUS CALL STARTS
       .then((message) => {
-        // 2. Update state with the returned status message
+        // 2. Update state with the returned status message. State update happens LATER,
+        // after the component has rendered its initial state.
         setStatus(message);
       })
       .catch((error) => {
         // 3. Handle errors gracefully
-        setStatus("Error fetching status.");
-        console.log(error);
+        setStatus("Error fetching status.", error);
+        //console.log(error); // Warning: "Error: Network error"
+        
       })
       .finally(() => {
         setLoading(false);
