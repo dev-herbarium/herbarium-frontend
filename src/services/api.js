@@ -18,9 +18,18 @@ const api = axios.create({
 });
 
 /**
- * @function api
+ * @constant api
  * @description <b> A pre-configured Axios instance for the Herbarium Backend API. </b>
- * @returns {object} The configured Axios instance.
+ * <p>
+ * It is pre-set with the base URL and default JSON headers.
+ * @type {object}
+ * @example
+ * // In a service file (e.g., plantService.js)
+ * import api from './api';
+ * const fetchPlant = async (plantId) => {
+ *      const response = await api.get(`/plants/${plantId}`);
+ *      return response.data;
+ * }
  */
 export default api;
 

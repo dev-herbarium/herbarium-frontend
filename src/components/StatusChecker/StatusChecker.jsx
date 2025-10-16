@@ -6,7 +6,21 @@ import { getAppStatus } from "../../services/statusService";
 /**
  * @function StatusChecker
  * @description <b> Fetches and displays the status of the Herbarium Backend API. </b>
- * @returns {JSX.Elemet} the component to display the status.
+ * <p>
+ * The component manages 'loading', 'success', and 'failure' states internaly.
+ * @returns {JSX.Elemet} The component to display the current backend status.
+ * @example
+ * // Usage in 'App.jsx':
+ * import StatusChecker from './components/StatusChecker/StatusChecker';
+ * 
+ * function App () {
+ *      return (
+ *               <main>
+ *                  <h1>Welcome to Herbarium</h1>
+ *                  <StatusChecker />
+ *               </main>
+ *             );
+ * }
  */
 function StatusChecker() {
   const [status, setStatus] = useState("Loading...");

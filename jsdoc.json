@@ -8,7 +8,11 @@
     "destination": "./jsdoc",
     "template": "./node_modules/docdash",
     "recurse": true,
-    "readme": "README.md"
+    "verbose": true,
+    "readme": "README.md",
+    "markdown": {
+      "parser": "gfm"
+    }
   },
   "plugins": [],
   "templates": {
@@ -24,13 +28,17 @@
         "Modules",
         "Externals",
         "Events",
+        "Namespaces",
         "Mixins",
         "Tutorials",
+        "Interfaces",
         "Global"
       ],
       "sort": true,
       "meta": {
-        "title": "Herbarium Frontend API Documentation"
+        "title": "Herbarium Frontend API Documentation",
+        "description": "A collection of preserved plant specimens & associated data used for personal study.",
+        "keyword": "Full-stack web application"
       }
     }
   }

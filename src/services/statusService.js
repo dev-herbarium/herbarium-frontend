@@ -14,6 +14,16 @@ import api from "./api";
  * @function getAppStatus
  * @description <b> Fetches the application status from the Herbarium Backend. </b>
  * @returns {Promise<string>} The status message from the Backend.
+ * @example
+ * // Usage in a React Component's "useEffect" hook:
+ * import { getAppStatus } from './statusService';
+ * 
+ * const [status, setStatus] = useState('Loading...');
+ * useEffect(() => {
+ *    getAppStatus()
+ *        .then(message => setStatus(message))
+ *        .catch(error => setStatus("Connection Failed"));
+ * }, []);
  */
 export const getAppStatus = async () => {
   try {
