@@ -1,0 +1,45 @@
+{
+  "source": {
+    "include": ["src"],
+    "includePattern": ".+\\.(js|jsx|html)$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "opts": {
+    "destination": "./jsdoc",
+    "template": "./node_modules/docdash",
+    "recurse": true,
+    "verbose": true,
+    "readme": "README.md",
+    "markdown": {
+      "parser": "gfm"
+    }
+  },
+  "plugins": [],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true,
+    "default": {
+      "outputSourceFiles": true
+    },
+    "docdash": {
+      "navLevel": 2,
+      "sectionOrder": [
+        "Classes",
+        "Modules",
+        "Externals",
+        "Events",
+        "Namespaces",
+        "Mixins",
+        "Tutorials",
+        "Interfaces",
+        "Global"
+      ],
+      "sort": true,
+      "meta": {
+        "title": "Herbarium Frontend API Documentation",
+        "description": "A collection of preserved plant specimens & associated data used for personal study.",
+        "keyword": "Full-stack web application"
+      }
+    }
+  }
+}

@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import { Routes, Route, Link } from "react-router-dom";
+import StatusChecker from "./components/StatusChecker/StatusChecker";
+import Home from "./pages/Home/Home"; // Assuming you created src/pages/Home.jsx
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {/* The StatusChecker remains outside the Routes to be always visible
+        (e.g., in a Header/Footer) 
+      */}
+      <StatusChecker />
+
+      {/* Navigation Links for Testing */}
+      <nav>
+        <Link to="/">Home</Link> |<Link to="/about">About</Link>
+      </nav>
+
+      <Routes>
+        {/* Route 1: The main landing page. 
+          Element points to the component to render.
+        */}
+        <Route path="/" element={<Home />} />
+
+        {/* Route 2: A simple placeholder route.
+          We can test navigation by going here.
+        */}
+        <Route path="/about" element={<h2>About Page (Future Content)</h2>} />
+
+        {/* Route 3: The 404/Not Found route. Uses '*' wildcard.
+         */}
+        <Route path="*" element={<h1>404: Page Not Found</h1>} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

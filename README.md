@@ -1,16 +1,27 @@
-# React + Vite
+# 🚧 Herbarium
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🤔 Overview
 
-Currently, two official plugins are available:
+Herbarium will be a full-stack web application that allows users to explore a comprehensive database of medicinal plants, save their favorites in a personal dashboard, and create and manage their own herbal recipes and preparation methods.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features & Requirements
 
-## React Compiler
+The objective of this final project will be to meet the following key requirements, which will serve as guiding principles for its development.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+1. **User Authentication & Authorization:** Secure login/logout and user registration.
+2. **Plant Exploration:** Search, filter, and browse plants from the [Perenual API](https://perenual.com/).
+3. **Favorites Management:** Users can add/remove plants from their personal favorites list.
+4. **Personal Herbarium (Dashboard):** A private area for users to view their favorites and manage their custom recipes.
+5. **Recipe Management:** Create, Read, Update, and Delete (CRUD) personal herbal recipes associated with specific plants.
 
-## Expanding the ESLint configuration
+## ℹ️ About
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project is part of the [Full Stack Web Development training program](https://factoriaf5.org/aprende/desarrollo-web-full-stack-asturias/) in [Asturias](https://en.wikipedia.org/wiki/Asturias), offered by [Factoría F5](https://factoriaf5.org/).
+
+The curriculum covers a wide range of topics, from basic programming languages ​​and UX principles to advanced project development techniques. It includes front-end and back-end technologies, agile methodologies, and tools for user experience design and database development. The program also focuses on essential soft skills such as communication, problem-solving, teamwork, adaptability, and time management.
+
+## 📧 Contact
+
+For any questions or inquiries, please do not hesitate to contact me!
+
+Happy coding! 🌱 🐒
