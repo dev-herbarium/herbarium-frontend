@@ -26,6 +26,11 @@
     margin-bottom: 5px;
 }
 
+.registration-form__error {
+    color: #D52D1A;
+    font-weight: bold;
+}
+
 .registration-form__input {
     width: 100%;
     padding: 8px 12px;
@@ -41,11 +46,12 @@
     box-shadow: 0 0 0 2px rgba(74, 124, 89, 0.2);
 }
 
-/* TODO: Implement logic for commented classes */
-/* .regitration-form__input--error {
-    border-color: #e74c3c;
+.registration-form__input--error {
+    color: #D52D1A;
+    font-weight: bold;
+    border-color: #D52D1A;
     background-color: #fdf2f2;
-} */
+}
 
 .registration-form__button {
     background-color: #4a7c59;
@@ -63,8 +69,7 @@
     background-color: #3a6349;
 }
 
-/* TODO: Implement logic for commented classes */
-/* .registration-form__button--disabled {
+.registration-form__button--disabled {
     background-color: #cccccc;
     cursor:not-allowed;
 }
@@ -90,4 +95,4 @@
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
-} */
+}
