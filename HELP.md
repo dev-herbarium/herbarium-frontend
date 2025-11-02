@@ -57,3 +57,41 @@ The following guides illustrate how to use some features concretely and are esse
 * **JavaScript Code Documentation:**
   * [Writing effective JSDoc for React Components](https://jsdoc.app/howto-es2015-modules.html)
   * [Documenting Custom Hooks and utility functions](https://jsdoc.app/tags-function.html)
+
+### 😉[BEM Methodology](https://getbem.com/)
+
+**BEM** stands for **Block 🫥 Element 😑 Modifier 😀** - a CSS naming methodology that makes your styles predictable, reusable, and maintainable.
+
+#### BEM Structure
+
+```css
+  .block {}
+  .block__element {}
+  .block--modifier {}
+```
+
+#### Examples
+
+```css
+/* Traditional CSS (problems: vague, can conflict) */
+
+.header {}
+.title {}
+.button {}
+.button.active {}
+
+
+/* BEM CSS (clear, specific, no conflicts) */
+
+.registration-form {}
+.registration-form__title {}
+.registration-form__input {}
+.registration-form__input--error {}
+.registration-form__button {}
+.registration-form__button--disabled {}
+```
+
+#### Resources
+
+* [BEM for everyone else](https://iknowdavehouse.medium.com/bem-for-everyone-else-89ccc8ad66f2)
+* [BEM documentation](https://en.bem.info/methodology/)
