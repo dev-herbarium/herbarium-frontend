@@ -1,7 +1,13 @@
 // src/components/Registration/RegistrationForm.jsx
 import { useState } from "react";
 import registrationService from "../../services/registrationService";
+import './RegistrationForm.css'
 
+/**
+ * <b>Registration Form Component</b>
+ * 
+ * @returns
+ */
 function RegistrationForm() {
   const [formData, setFormData] = useState({
     email: "",
@@ -48,12 +54,13 @@ function RegistrationForm() {
   };
 
   return (
-    <div>
-      <h2>User Registration</h2>
+    <div className="registration-form">
+      <h2 className="registration-form__title">User Registration</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email:</label>
+        <div className="registration-form__field">
+          <label htmlFor="email" className="registration-form__label">Email:</label>
           <input
+            className="registration-form__input"
             type="email"
             id="email"
             name="email"
@@ -63,9 +70,10 @@ function RegistrationForm() {
           />
         </div>
 
-        <div>
-          <label htmlFor="password">Password:</label>
+        <div className="registration-form__field">
+          <label htmlFor="password" className="registration-form__label">Password:</label>
           <input
+            className="registration-form__input"
             type="password"
             id="password"
             name="password"
@@ -75,9 +83,10 @@ function RegistrationForm() {
           />
         </div>
 
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
+        <div className="registration-form__field">
+          <label htmlFor="confirmPassword" className="registration-form__label">Confirm Password:</label>
           <input
+            className="registration-form__input"
             type="password"
             id="confirmPassword"
             name="confirmPassword"
@@ -87,7 +96,7 @@ function RegistrationForm() {
           />
         </div>
 
-        <button type="submit" disabled={isLoading}>
+        <button  className="registration-form__button" type="submit" disabled={isLoading}>
           {isLoading ? "Registering..." : "Register"}
         </button>
       </form>
