@@ -35,24 +35,25 @@ function RegistrationForm() {
   };
 
   const validateForm = () => {
+    console.log("Validation triggered")
     const newErrors = {};
 
     if (!formData.email) {
-      newErrors.email = "ℹ️ Email is required!";
+      newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "ℹ️ Email format is invalid!";
+      newErrors.email = "Email format is invalid";
     }
 
     if (!formData.password) {
-      newErrors.password = "ℹ️ Password is required!";
+      newErrors.password = "Password is required";
     } else if (formData.password.length < 6) {
-      newErrors.password = "ℹ️ Password must be at least 6 characters!";
+      newErrors.password = "Password must be at least 6 characters";
     }
 
     if (!formData.confirmPassword) {
-      newErrors.confirmPassword = "ℹ️ Please confirm your password!";
+      newErrors.confirmPassword = "Please confirm your password";
     } else if (formData.confirmPassword !== formData.password) {
-      newErrors.confirmPassword = "ℹ️ Passwords do not match!";
+      newErrors.confirmPassword = "Passwords do not match";
     }
 
     setErrors(newErrors);
@@ -76,7 +77,7 @@ function RegistrationForm() {
         formData.confirmPassword
       );
       setMessage({
-        text: `✅️ Registration successful! User ID: ${result.userId}`,
+        text: `Registration successful! User ID: ${result.userId}`,
         type: "success"
       });
 
@@ -86,7 +87,7 @@ function RegistrationForm() {
 
     } catch (error) {
       setMessage({
-        text: `❌ ${error.message}`,
+        text: `Error: ${error.message}`,
         type: "error"
       });
 
@@ -108,7 +109,7 @@ function RegistrationForm() {
   return (
     <div className="registration-form">
       <h2 className="registration-form__title">User Registration</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} noValidate>
         <div className="registration-form__field">
           <label htmlFor="email" className="registration-form__label">Email:</label>
           <input

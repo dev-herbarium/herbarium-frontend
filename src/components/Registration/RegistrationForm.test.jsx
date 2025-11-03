@@ -1,6 +1,6 @@
 // src/components/Registration/RegistrationForm.test.jsx
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 import RegistrationForm from "./RegistrationForm";
 import registrationService from "../../services/registrationService";
 
@@ -8,6 +8,10 @@ import registrationService from "../../services/registrationService";
 vi.mock("../../services/registrationService");
 
 describe("RegistrationForm", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
   it("should render registration form with all fields", () => {
     render(<RegistrationForm />);
 
@@ -17,6 +21,28 @@ describe("RegistrationForm", () => {
     expect(
       screen.getByRole("button", { name: /register/i })
     ).toBeInTheDocument();
+  });
+
+  it("should render Registration Form with all fields and BEM classes", () => {
+    render(<RegistrationForm />);
+
+    expect(screen.getByText(/user registration/i)).toHaveClass(
+      "registration-form__title"
+    );
+
+    expect(screen.getByLabelText(/^email:/i)).toHaveClass(
+      "registration-form__input"
+    );
+    expect(screen.getByLabelText(/^password:/i)).toHaveClass(
+      "registration-form__input"
+    );
+    expect(screen.getByLabelText(/^confirm password:/i)).toHaveClass(
+      "registration-form__input"
+    );
+
+    expect(screen.getByRole("button", { name: /register/i })).toHaveClass(
+      "registration-form__button"
+    );
   });
 
   it("should update form data when user types", () => {
@@ -59,5 +85,67 @@ describe("RegistrationForm", () => {
         "password123"
       );
     });
+  });
+
+  it("should show error for short password", async () => {
+    render(<RegistrationForm />);
+
+    fireEvent.change(screen.getByLabelText("Password:"), {
+      target: { value: "123" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /register/i }));
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(/password must be at least 6 characters/i)
+      ).toBeInTheDocument();
+    });
+  });
+
+  it("should show error when passwords do not match", async () => {
+    render(<RegistrationForm />);
+
+    fireEvent.change(screen.getByLabelText("Password:"), {
+      target: { value: "password123" },
+    });
+    fireEvent.change(screen.getByLabelText("Confirm Password:"), {
+      target: { value: "differentpassword" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /register/i }));
+
+    await waitFor(() => {
+      expect(screen.getByText(/^passwords do not match$/i)).toBeInTheDocument();
+    });
+  });
+
+  it("should show loading state during registration", async () => {
+    const mockRegister = vi
+      .spyOn(registrationService, "registerUser")
+      .mockImplementation(
+        () =>
+          new Promise((resolve) =>
+            setTimeout(() => resolve({ userId: 1 }), 100)
+          )
+      );
+
+    render(<RegistrationForm />);
+
+    fireEvent.change(screen.getByLabelText("Email:"), {
+      target: { value: "test@example.com" },
+    });
+    fireEvent.change(screen.getByLabelText("Password:"), {
+      target: { value: "password123" },
+    });
+    fireEvent.change(screen.getByLabelText("Confirm Password:"), {
+      target: { value: "password123" },
+    });
+
+    fireEvent.click(screen.getByRole("button", { name: /register/i }));
+
+    expect(screen.getByRole("button")).toHaveTextContent(/registering/i);
+    expect(screen.getByRole("button")).toBeDisabled();
+    expect(screen.getByRole("button")).toHaveClass(
+      "registration-form__button--disabled"
+    );
   });
 });
