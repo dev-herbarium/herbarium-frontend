@@ -4,23 +4,27 @@ import React, { useState, useEffect } from "react";
 import { getAppStatus } from "../../services/statusService";
 
 /**
+ * **Status Checker Component** - Monitors backend API connectivity
+ * 
+ * @component
  * @function StatusChecker
- * @description <b> Fetches and displays the status of the Herbarium Backend API. </b>
- * <p>
- * The component manages 'loading', 'success', and 'failure' states internaly.
- * @returns {JSX.Elemet} The component to display the current backend status.
+ * @description Fetches and displays the status of the Herbarium Backend API.
+ * Manages loading, success, and failure states internally. Provides real-time
+ * feedback about backend connectivity status.
+ * 
  * @example
- * // Usage in 'App.jsx':
- * import StatusChecker from './components/StatusChecker/StatusChecker';
- *
- * function App () {
- *      return (
- *               <main>
- *                  <h1>Welcome to Herbarium</h1>
- *                  <StatusChecker />
- *               </main>
- *             );
- * }
+ * // Usage in App.jsx:
+ * <StatusChecker />
+ * 
+ * @returns {JSX.Element} Component displaying current backend status with loading states
+ * 
+ * @state {string} status - Current status message from backend
+ * @state {boolean} loading - Loading state during API call
+ * 
+ * @see getAppStatus
+ * @see statusService
+ * 
+ * @effect {Function} useEffect - Fetches backend status on component mount
  */
 function StatusChecker() {
   const [status, setStatus] = useState("Loading...");

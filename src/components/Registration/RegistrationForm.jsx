@@ -4,9 +4,36 @@ import registrationService from "../../services/registrationService";
 import './RegistrationForm.css'
 
 /**
- * <b>Registration Form Component</b>
+ * **Registration Form Component** - Handles user registration with validation
  * 
- * @returns
+ * @component
+ * @function RegistrationForm
+ * @description A controlled form component that handles user registration
+ * with client-side validation, error handling, and API integration. Manages
+ * form state, validation errors, loading states, and submission feedback.
+ * 
+ * @example
+ * // Usage in parent component:
+ * <RegistrationForm />
+ * 
+ * @returns {JSX.Element} Registration form with email, password, and confirmation fields
+ * 
+ * @state {Object} formData - Current form field values
+ * @state {string} formData.email - User's email address
+ * @state {string} formData.password - User's password
+ * @state {string} formData.confirmPassword - Password confirmation
+ * @state {Object} message - Feedback message after form submission
+ * @state {string} message.text - Message content
+ * @state {string} message.type - Message type ('success' or 'error')
+ * @state {boolean} isLoading - Loading state during form submission
+ * @state {Object} errors - Validation error messages per field
+ * 
+ * @see registrationService
+ * @method handleChange - Updates form data and clears field errors
+ * @method validateForm - Performs client-side form validation
+ * @method handleSubmit - Handles form submission and API call
+ * @method getInputClassName - Dynamically generates CSS classes for inputs
+ * @method getMessageClassName - Dynamically generates CSS classes for messages
  */
 function RegistrationForm() {
   const [formData, setFormData] = useState({
@@ -19,6 +46,10 @@ function RegistrationForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
+  /**
+   * Handles input field changes and updates form state
+   * @param {Event} event - The change event from the input field
+   */
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((previousState) => ({
@@ -34,6 +65,10 @@ function RegistrationForm() {
     }
   };
 
+  /**
+   * Validates form data and sets error messages
+   * @returns {boolean} True if form is valid, false otherwise
+   */
   const validateForm = () => {
     console.log("Validation triggered")
     const newErrors = {};
@@ -60,6 +95,10 @@ function RegistrationForm() {
     return Object.keys(newErrors).length === 0;
   };
 
+  /**
+   * Handles form submission with validation and API call
+   * @param {Event} event - The form submission event
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -96,11 +135,20 @@ function RegistrationForm() {
     }
   };
 
+  /**
+   * Generates CSS class names for input fields based on validation state
+   * @param {string} fieldName - The name of the form field
+   * @returns {string} CSS class names for the input field
+   */
   const getInputClassName = (fieldName) => {
     const baseClass = "registration-form__input";
     return errors[fieldName] ? `${baseClass} ${baseClass}--error` : baseClass;
   };
 
+  /**
+   * Generates CSS class names for message display based on message type
+   * @returns {string} CSS class names for the message container
+   */
   const getMessageClassName = () => {
     const baseClass = `registration-form__message`;
     return message.type ? `${baseClass} ${baseClass}--${message.type}` : baseClass;

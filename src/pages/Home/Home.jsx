@@ -5,12 +5,22 @@ import RegistrationForm from "../../components/Registration/RegistrationForm";
 import './Home.css';
 
 /**
- * <b>Home Page Component</b>
+ * **Home Page Component** - Main landing page for the Herbarium application
  * 
- * @function Home
- * @description <b>The landing page for the application.</b>
- * @returns {JSX.Element} The Home page content.
  * @component
+ * @function Home
+ * @description The primary landing page that welcomes users and provides access
+ * to user registration functionality. Manages the visibility state of the
+ * registration form component.
+ * 
+ * @example
+ * return (
+ *   <Home />
+ * )
+ * 
+ * @returns {JSX.Element} Rendered home page with registration toggle
+ * @state {boolean} showRegistration - Controls visibility of registration form
+ * @see RegistrationForm
  */
 function Home() {
   const [showRegistration, setShowRegistration] = useState(false);

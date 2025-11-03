@@ -3,6 +3,25 @@ import { Routes, Route, Link } from "react-router-dom";
 import StatusChecker from "./components/StatusChecker/StatusChecker";
 import Home from "./pages/Home/Home"; // Assuming you created src/pages/Home.jsx
 
+/**
+ * **Main Application Component** - Root component for the Herbarium frontend
+ * 
+ * @component
+ * @function App
+ * @description The root component that sets up routing and application structure.
+ * Renders the main navigation, status checker, and route configurations for
+ * the entire application.
+ * 
+ * @example
+ * // Rendered by main.jsx as the application root
+ * return <App />
+ * 
+ * @returns {JSX.Element} The complete application with routing structure
+ * 
+ * @see StatusChecker
+ * @see Home
+ * @see BrowserRouter
+ */
 function App() {
   return (
     <>
