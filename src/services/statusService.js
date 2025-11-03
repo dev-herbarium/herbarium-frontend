@@ -1,29 +1,56 @@
 // src/services/statusService.js
-
-//import { useEffect } from "react";
 import api from "./api";
-
-// (!) This file is for testing purposes only!
-// It is used to test the "Services Setup" (Axios installation & configuration)
-// to be able to fetch data from my backend.
-// (e.g., getting the status from my "/api/status" endpoint)
 
 // TODO: This file, and likely the folder containing it (utils), should be deleted in the future.
 
 /**
+ * Status Service - Monitors backend API connectivity and health
+ * 
+ * @module services/statusService
+ * @description Service for checking backend API status and connectivity.
+ * Primarily used for development and monitoring purposes to verify
+ * that the frontend can communicate with the backend API.
+ * 
+ * @note This service is mainly for testing purposes and may be
+ * refactored or removed in future versions.
+ * 
+ * @see api
+ * @see StatusChecker
+ */
+
+/**
+ * **Fetches the current application status from the Herbarium Backend API**
+ * 
  * @function getAppStatus
- * @description <b> Fetches the application status from the Herbarium Backend. </b>
- * @returns {Promise<string>} The status message from the Backend.
+ * @description Asynchronously retrieves the backend status to verify API connectivity.
+ * Uses the pre-configured API instance and handles errors gracefully to prevent
+ * application crashes when the backend is unavailable.
+ * 
+ * @returns {Promise<string>} A promise that resolves to the status message from the backend
+ * @throws {Error} When network request fails (handled internally with default message)
+ * 
  * @example
- * // Usage in a React Component's "useEffect" hook:
+ * // Usage in React components with useEffect:
  * import { getAppStatus } from './statusService';
  * 
- * const [status, setStatus] = useState('Loading...');
  * useEffect(() => {
- *    getAppStatus()
- *        .then(message => setStatus(message))
- *        .catch(error => setStatus("Connection Failed"));
+ *   const checkStatus = async () => {
+ *     try {
+ *       const status = await getAppStatus();
+ *       setStatusMessage(status);
+ *     } catch (error) {
+ *       setStatusMessage('Backend unavailable');
+ *     }
+ *   };
+ *   
+ *   checkStatus();
  * }, []);
+ * 
+ * @example
+ * // Direct usage:
+ * getAppStatus()
+ *   .then(status => console.log(`Backend status: ${status}`))
+ *   .catch(error => console.error('Status check failed'));
  */
 export const getAppStatus = async () => {
   try {

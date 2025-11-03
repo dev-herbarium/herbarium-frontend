@@ -18,18 +18,29 @@ const api = axios.create({
 });
 
 /**
- * @constant api
- * @description <b> A pre-configured Axios instance for the Herbarium Backend API. </b>
- * <p>
- * It is pre-set with the base URL and default JSON headers.
- * @type {object}
+ * **Pre-configured Axios instance for Herbarium Backend API communication**
+ * 
+ * @module services/api
+ * @constant {Object} api
+ * @description A pre-configured Axios instance with base URL and default headers
+ * for communicating with the Herbarium Backend API. Provides centralized
+ * configuration for all API requests including future authentication interceptors.
+ * 
+ * @property {string} baseURL - The base URL for all API requests
+ * @property {Object} headers - Default headers for API requests
+ * 
  * @example
- * // In a service file (e.g., plantService.js)
+ * // Import and use in service files
  * import api from './api';
- * const fetchPlant = async (plantId) => {
- *      const response = await api.get(`/plants/${plantId}`);
- *      return response.data;
+ * 
+ * const fetchPlants = async () => {
+ *   const response = await api.get('/plants');
+ *   return response.data;
  * }
+ * 
+ * @see axios
+ * @see registrationService
+ * @see statusService
  */
 export default api;
 
